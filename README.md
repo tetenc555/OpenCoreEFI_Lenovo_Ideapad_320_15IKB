@@ -32,8 +32,9 @@ Go to your bios and make this changes, **otherwise the system will not boot**:
 * Switch from Intel RST Premium to AHCI  
 
 ## When you finish installing...
-Go to your EFI and change the Serial Number and info under PlatformInfo section. Im packing an public Serial Number so this is for security reasons... You can use [this](https://github.com/corpnewt/GenSMBIOS) to help changing it!! Im currently using the MacBookPro14,1 SMBIOS  
-Also, go to your EFI and under Misc change the LauncherOption to Short. This will keep your EFI safier from any damage that can be caused by other systems or even the bios itself <333
+Go to your EFI and change the Serial Number and info under PlatformInfo section. Im packing an public Serial Number so this is for security reasons... You can use [this](https://github.com/corpnewt/GenSMBIOS) to help changing it!! Im currently using the MacBookAir9,1 SMBIOS  
+Also, go to your EFI and under Misc change the LauncherOption to Short. This will keep your EFI safier from any damage that can be caused by other systems or even the bios itself <333  
+And, by the end, if you want full security (in Apple Security standarts), set an ApECID. Follow this [tutorial](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html#special-notes-with-securebootmodel) to do it!!
 
 ## Misc
 
