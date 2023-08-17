@@ -38,6 +38,9 @@ And, by the end, if you want full security (in Apple Security standarts), set an
 
 ## Misc
 
+### Running systems older then Big Sur
+If you need to run systems older then Big Sur, you will need to get the 1.0.0 release, as it is configured to use the MacBook Pro 2017 SMBIOS. It will run from 10.12.5 all the way to 13.2 (latest tested, probably it will run all Ventura versions) with no problems. The SMBIOS just had to be updated to an MacBook Air 2020 cause apple isnt natively supporting 2017 Macs anymore </3
+
 ### Disabling boot sound
 There is an way to disable it via the EFI but you can just go to the settings app and disable it under Audio Preferences!!
 
