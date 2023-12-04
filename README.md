@@ -10,15 +10,16 @@ This EFI was built with my own laptop, and targeting at making all of its compon
 | SSD on main SATA + HDD on disk caddy  | Fully working  |
 | Intel HD 620 | Fully working with external display support and 3GB VRAM  |
 | Trackpad (Synaptics)[^1]  | Fully working with gestures and proper Force-Touch emulation  |
-| Apple BCM94360CS2 Wi-Fi + Bluetooth Module[^2] | Fully working (until Ventura) with AirDrop and Continuity Features[^3]  |
+| Intel AC3160 Wi-Fi + Bluetooth Module | Fully working without AirDrop and Continuity Features |
+| Apple BCM94360CS2 Wi-Fi + Bluetooth Module[^2] | Fully working with AirDrop and Continuity Features[^3]  |
 | Realtek Audio (ALC230) | Fully working with proper in and out |
 | Realtek Ethernet | Fully working |
 | USB 3.0 and Type-C | Fully working |
 | Fn Lenovo combos + battery conservation mode | Fully working (install YogaSMC prefpane to use them) |
 
 [^1]:An common issue with this build is that some models came with an ELAN trackpad. You probably just need an different kext, as some people tried this EFI and it worked fine with these patches.
-[^2]:I changed the wifi combo and i recommend doing this if you want AirDrop and Continuity Features. You can use the Intel WiFi some models came with using [this kexts](https://openintelwireless.github.io)
-[^3]:Althought there is an fix in development by OCLP, it requires some patches and the SIP to be disabled. These patches are not in this EFI and this WiFi will work natively on every version since the older macOS this laptop can handle until Ventura. Probably updating when the patch doesnt require SIP to be disabled.
+[^2]:I changed the wifi combo and i recommend doing this if you want AirDrop and Continuity Features. You can use this by following the tutorial on the Wi-Fi configuration section
+[^3]:Althought there is an fix developed by OCLP, it requires some patches and the SIP to be disabled. These patches are not in this EFI and this WiFi will work natively on every version since the older macOS this laptop can handle until Ventura. Follow the instructions on the Wi-Fi configuration section to have this working.
 
 ## What's not working
 1. If you're using the Intel Wi-FI:
@@ -35,6 +36,23 @@ Go to your bios and make this changes, **otherwise the system will not boot**:
 Go to your EFI and change the Serial Number and info under PlatformInfo section. Im packing an public Serial Number so this is for security reasons... You can use [this](https://github.com/corpnewt/GenSMBIOS) to help changing it!! Im currently using the MacBookAir9,1 SMBIOS  
 Also, go to your EFI and under Misc change the LauncherOption to Short. This will keep your EFI safier from any damage that can be caused by other systems or even the bios itself <333  
 And, by the end, if you want full security (in Apple Security standarts), set an ApECID. Follow this [tutorial](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html#special-notes-with-securebootmodel) to do it!!
+
+## Wifi Configuration
+This EFI comes with Intel Kexts correctly configured for macOS Sonoma and Monterey. Follow these tutorials if you are using the Intel card on an older macOS or if you are using the Apple Wi-Fi Card on Sonoma.
+
+### Intel Wi-Fi on older macOS
+This process is very simple, just disable BluetoolFixUp and enable IntelBluetoothInjector in Kernel section and it should work fine! :3
+
+### Apple Native Wi-Fi on macOS Sonoma
+This process is a bit complicated but at the end your OTA Updates should still be working, even thought SIP will be disabled.
+1. Disable all Intel Kexts including BlueToolFixUp
+2. Enable IOSkyFamily, the two IO80211 kexts and the AMFIPass kext
+3. Enable IOSkyFamily in the Exclude section
+4. Add the boot arg into your nvram: -amfipassbeta
+5. Change your csr-active-config to 03080000 in the nvram section
+6. Restart and reset your nvram
+7. Install OpenCore Legacy Patcher and run the Post-Install Root Patches
+Now your wifi and bluetooth should be working with all Continuity Features!! <33
 
 ## Misc
 
