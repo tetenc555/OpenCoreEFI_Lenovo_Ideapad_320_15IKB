@@ -66,7 +66,7 @@ There is an way to disable it via the EFI but you can just go to the settings ap
 Use OpenCoreAuxiliaryTools, mount your EFI and open your config.plist. You should be able to disable the option ShowPicker under the Misc section!!
 
 ### Removing EFI partitions from boot picker
-Make sure you have hidden content enabled on finder, download the .contentVisible file and place it inside of the "Boot" folder of any EFI partition that may be showing up on the boot picker and restart!! Works with any OC build starting from OC 0.8.8!! Tested with a Windows partition :3
+Make sure you have hidden content enabled on finder, download the contentVisible file, add a dot in the start of its name (it should be named .contentVisible) and place it inside of the "Boot" folder of any EFI partition that may be showing up on the boot picker and restart!! Works with any OC build starting from OC 0.8.8!! Tested with a Windows partition :3
 
 ### Bootcamp and Windows Dualboot status
 You can easily install Windows and use Bootcamp to switch between systems without using the picker. Keep in mind you will need an flash drive with the Opencore EFI on it to boot onto Mac after installing Windows, just so you can restore the EFI. Just don't delete the Microsoft Folder and copy the boot folder from the usb. It should work just like an real Mac after this! 
