@@ -1,5 +1,8 @@
 # OpenCore EFI for the Lenovo Ideapad 320 (15IKB)
 
+## Discontinuation
+My laptop just got damaged in a way that would require a new top case for me to continue using it as a daily driver (cause im always using it on college and trips) so, i had to buy a new one (i luv u Thinkpad T480 <3). Because of that, sadly i cant continue supporting this EFI, but i can ensure that this works on the RC of Sequoia just fine, but perfomance is kinda poor (probably cause of my low RAM) and Intel Wi-Fi only works via itlwm using Heliport, which im not including right now. I made this branch cause the last full stable version is supporting Sonoma and old versions just fine, so if youre planning on running anything older than Sequoia, use the main branch. 
+
 ## Disclaimer
 This EFI was built with my own laptop, and targeting at making all of its components functional. Please be aware that the same model of laptop can have differents components and im not responsible for any damage or data lost in the process of installing macOS. 
 
